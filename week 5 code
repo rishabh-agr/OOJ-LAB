@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+class Account{
+String customerName;
+int accountNumber;
+String accountType;
+double balance;
+
+public Account(String customerName, int accountNumber, String accountType, double balance){
+this.customerName = customerName;
+this.accountNumber = accountNumber;
+this.accountType = accountType;
+this.balance = balance;
+}
+
+public void displayBalance(){
+System.out.println("Account Balance: " + balance);
+}
+}
+
+class SavingsAccount extends Account {
+double interestRate;
+
+public SavingsAccount(String customerName, int accountNumber, String accountType, double balance, double interestRate){
+super(customerName,accountNumber, accountType, balance);
+this.interestRate = interestRate;
+}
+
+public void computeInterest(){
+balance += (balance * interestRate) / 100;
+System.out.println("Interest rate added");
+}
+
+public void withdraw(double amount){
+if (amount <= balance){
+balance -= amount;
+System.out.println("Withdrawal Successful");
+}
+else{
+System.out.println("Insufficient Fund");
+}
+}
+}
+
+
+class CurrentAccount extends Account{
+double minBalance;
+double serviceCharge;
+
+public CurrentAccount(String customerName, int accountNumber, String accountType, double balance ,double minBalance, double serviceCharge){
+super(customerName,accountNumber, accountType, balance);
+
+this.minBalance = minBalance;
+this.serviceCharge = serviceCharge;
+}
+
+public void withdraw(double amount){
+if (balance - amount >= minBalance){
+balance -= amount;
+System.out.println("Withdrawal Successful");
+}
+else{
+System.out.println("Insufficient Fund, Service charge will be applied");
+balance -= serviceCharge;
+}
+}
+}
+
+public class Bank{
+public static void main(String args[]){
+SavingsAccount savings = new SavingsAccount("Jhon",1001,"Savings",5000,5);
+CurrentAccount current = new CurrentAccount("Alice",2001,"Current",8000,1000,50);
+
+savings.computeInterest();
+savings.displayBalance();
+savings.withdraw(2000);
+savings.displayBalance();
+
+current.displayBalance();
+current.withdraw(5000);
+current.displayBalance();
+}
+}
