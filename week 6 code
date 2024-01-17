@@ -1,0 +1,611 @@
+# String literal
+str_literal = "Hello, "
+
+# String length
+str_length = len(str_literal)
+
+# String concatenation
+name = "World"
+greeting = str_literal + name
+
+# Displaying results
+print("String Literal:", str_literal)
+print("String Length:", str_length)
+print("String Concatenation:", greeting)
+
+# Demonstrate str() function
+number = 42
+float_number = 3.14
+boolean_value = True
+list_data = [1, 2, 3]
+dictionary_data = {'key': 'value'}
+
+# Convert objects to their string representations using str()
+number_str = str(number)
+float_number_str = str(float_number)
+boolean_value_str = str(boolean_value)
+list_data_str = str(list_data)
+dictionary_data_str = str(dictionary_data)
+
+# Displaying results
+print("Original Number:", number)
+print("String Representation of Number:", number_str)
+
+print("\nOriginal Float Number:", float_number)
+print("String Representation of Float Number:", float_number_str)
+
+print("\nOriginal Boolean Value:", boolean_value)
+print("String Representation of Boolean Value:", boolean_value_str)
+
+print("\nOriginal List:", list_data)
+print("String Representation of List:", list_data_str)
+
+print("\nOriginal Dictionary:", dictionary_data)
+print("String Representation of Dictionary:", dictionary_data_str)
+
+
+public class ToStringDemo {
+    public static void main(String[] args) {
+        // Demonstrate toString() method
+        int number = 42;
+        double floatNumber = 3.14;
+        boolean booleanValue = true;
+        int[] arrayData = {1, 2, 3};
+        String stringValue = "Hello, World";
+
+        // Convert objects to their string representations using toString()
+        String numberStr = Integer.toString(number);
+        String floatNumberStr = Double.toString(floatNumber);
+        String booleanValueStr = Boolean.toString(booleanValue);
+        String arrayDataStr = arrayToString(arrayData);
+        String stringValueStr = stringValue.toString(); // Note: Strings already have toString()
+
+        // Displaying results
+        System.out.println("Original Number: " + number);
+        System.out.println("String Representation of Number: " + numberStr);
+
+        System.out.println("\nOriginal Float Number: " + floatNumber);
+        System.out.println("String Representation of Float Number: " + floatNumberStr);
+
+        System.out.println("\nOriginal Boolean Value: " + booleanValue);
+        System.out.println("String Representation of Boolean Value: " + booleanValueStr);
+
+        System.out.println("\nOriginal Array: " + arrayToString(arrayData));
+        System.out.println("String Representation of Array: " + arrayDataStr);
+
+        System.out.println("\nOriginal String: " + stringValue);
+        System.out.println("String Representation of String: " + stringValueStr);
+    }
+
+    // Custom method to convert an array to its string representation
+    private static String arrayToString(int[] array) {
+        StringBuilder result = new StringBuilder("[");
+        for (int i = 0; i < array.length; i++) {
+            result.append(array[i]);
+            if (i < array.length - 1) {
+                result.append(", ");
+            }
+        }
+        result.append("]");
+        return result.toString();
+    }
+}
+
+
+public class GetCharsDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Welcome to Bmsce college";
+
+        // Define the target substring "Bmsce"
+        char[] targetCharArray = new char[5];
+
+        // Extract "Bmsce" using getChars()
+        originalString.getChars(11, 16, targetCharArray, 0);
+
+        // Displaying the extracted substring
+        System.out.println("Extracted Substring: " + new String(targetCharArray));
+    }
+}
+
+
+public class GetBytesDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Hello, World!";
+
+        // Get the byte array using getBytes()
+        byte[] byteArray = originalString.getBytes();
+
+        // Displaying the byte array
+        System.out.print("Byte Array: ");
+        for (byte b : byteArray) {
+            System.out.print(b + " ");
+        }
+    }
+}
+
+
+public class ToCharArrayDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Java is fun!";
+
+        // Convert the string to char array using toCharArray()
+        char[] charArray = originalString.toCharArray();
+
+        // Displaying the char array
+        System.out.print("Char Array: ");
+        for (char c : charArray) {
+            System.out.print(c + " ");
+        }
+    }
+}
+
+
+public class StringComparisonDemo {
+    public static void main(String[] args) {
+        // Strings to compare
+        String str1 = "Bmsce";
+        String str2 = "College";
+        String str3 = "BMSCE";
+
+        // Check if str1 equals str1 (case-sensitive)
+        boolean isEqual1 = str1.equals("Bmsce");
+        System.out.println("Bmsce equals Bmsce -> " + isEqual1);
+
+        // Check if str1 equals str2 (case-sensitive)
+        boolean isEqual2 = str1.equals(str2);
+        System.out.println("Bmsce equals College -> " + isEqual2);
+
+        // Check if str1 equals str3 (case-sensitive)
+        boolean isEqual3 = str1.equals(str3);
+        System.out.println("Bmsce equals BMSCE -> " + isEqual3);
+
+        // Check if str1 equalsIgnoreCase str3
+        boolean isEqualIgnoreCase = str1.equalsIgnoreCase(str3);
+        System.out.println("Bmsce equalsIgnoreCase BMSCE -> " + isEqualIgnoreCase);
+    }
+}
+
+
+public class RegionMatchesDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Welcome to Bmsce College of Engineering";
+
+        // Substring to match
+        String substringToMatch = "Bmsce college";
+
+        // Using regionMatches() to check if substring matches
+        boolean isMatched = originalString.regionMatches(true, 11, substringToMatch, 0, substringToMatch.length());
+
+        // Displaying the result
+        if (isMatched) {
+            System.out.println("Substring is matched");
+        } else {
+            System.out.println("Substring is not matched");
+        }
+    }
+}
+
+
+public class StartsWithDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Hello, World!";
+
+        // Prefixes to check
+        String prefix1 = "Hello";
+        String prefix2 = "World";
+
+        // Using startsWith() to check if the string starts with the specified prefixes
+        boolean startsWith1 = originalString.startsWith(prefix1);
+        boolean startsWith2 = originalString.startsWith(prefix2);
+
+        // Displaying the results
+        System.out.println("Starts with \"" + prefix1 + "\": " + startsWith1);
+        System.out.println("Starts with \"" + prefix2 + "\": " + startsWith2);
+    }
+}
+
+
+public class EndsWithDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Hello, World!";
+
+        // Suffixes to check
+        String suffix1 = "World!";
+        String suffix2 = "Hello";
+
+        // Using endsWith() to check if the string ends with the specified suffixes
+        boolean endsWith1 = originalString.endsWith(suffix1);
+        boolean endsWith2 = originalString.endsWith(suffix2);
+
+        // Displaying the results
+        System.out.println("Ends with \"" + suffix1 + "\": " + endsWith1);
+        System.out.println("Ends with \"" + suffix2 + "\": " + endsWith2);
+    }
+}
+
+
+public class EqualsVsDoubleEqualsDemo {
+    public static void main(String[] args) {
+        // Create two string objects with the same content
+        String str1 = "Hello, World!";
+        String str2 = new String("Hello, World!");
+
+        // Using equals() to compare content
+        boolean isEqualUsingEquals = str1.equals(str2);
+
+        // Using == to compare references
+        boolean isEqualUsingDoubleEquals = (str1 == str2);
+
+        // Displaying the results
+        System.out.println("Using equals(): " + isEqualUsingEquals);
+        System.out.println("Using == : " + isEqualUsingDoubleEquals);
+    }
+}
+
+
+import java.util.Arrays;
+
+public class AlphabetSorting {
+    public static void main(String[] args) {
+        // Array of words
+        String[] words = {"van", "watch", "ball", "cat", "xmas", "yatch", "zee", "apple", "ice", "jug", 
+                          "kite", "lift", "man", "net", "orange", "dog", "ent", "free", "gun", "hen", 
+                          "parrot", "queen", "ring", "star", "tree", "umbrella"};
+
+        // Sorting the array using compareTo()
+        Arrays.sort(words);
+
+        // Displaying the sorted array
+        System.out.println("Sorted Words:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+}
+
+
+import java.util.Arrays;
+
+public class NumberSorting {
+    public static void main(String[] args) {
+        // Array of numbers from 10 to 1
+        Integer[] numbers = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        // Sorting the array using compareTo()
+        Arrays.sort(numbers);
+
+        // Displaying the sorted array
+        System.out.println("Sorted Numbers:");
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+    }
+}
+
+
+public class StringReplaceDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Thwas was a test. Thwas was, too.";
+
+        // Substring to replace
+        String substringToReplace = "was";
+
+        // Replacement string
+        String replacementString = "is";
+
+        // Find the first occurrence of the substring
+        int indexOfSubstring = originalString.indexOf(substringToReplace);
+
+        // Check if the substring exists in the original string
+        while (indexOfSubstring != -1) {
+            // Create a new string with the replacement
+            originalString = originalString.substring(0, indexOfSubstring) +
+                             replacementString +
+                             originalString.substring(indexOfSubstring + substringToReplace.length());
+
+            // Find the next occurrence of the substring
+            indexOfSubstring = originalString.indexOf(substringToReplace, indexOfSubstring + replacementString.length());
+        }
+
+        // Displaying the modified string
+        System.out.println("Modified String: " + originalString);
+    }
+}
+
+
+public class ConcatenationDemo {
+    public static void main(String[] args) {
+        // Strings to concatenate
+        String s1 = "hello";
+        String s2 = "world";
+
+        // Using concat() to concatenate s1 and s2
+        String result = s1.concat(s2);
+
+        // Displaying the result
+        System.out.println("Concatenated String: " + result);
+    }
+}
+
+
+public class ReplaceDemo {
+    public static void main(String[] args) {
+        // Original string
+        String originalString = "Welcome to Bmsce College of Engineering";
+
+        // String to be replaced
+        String targetString = "College";
+
+        // Replacement string
+        String replacementString = "Commege";
+
+        // Using replace() to replace "College" with "Commege"
+        String modifiedString = originalString.replace(targetString, replacementString);
+
+        // Displaying the modified string
+        System.out.println("Modified String: " + modifiedString);
+    }
+}
+
+
+public class TrimDemo {
+    public static void main(String[] args) {
+        // Original string with leading and trailing spaces
+        String originalString = " Hello Friends ";
+
+        // Using trim() to remove leading and trailing spaces
+        String trimmedString = originalString.trim();
+
+        // Displaying the trimmed string
+        System.out.println("Original String: '" + originalString + "'");
+        System.out.println("Trimmed String: '" + trimmedString + "'");
+    }
+}
+
+
+import java.util.Arrays;
+
+class Student {
+    private int registrationNumber;
+    private String fullName;
+    private short semester;
+    private float cgpa;
+
+    // Default constructor
+    public Student() {}
+
+    // Parameterized constructor
+    public Student(int registrationNumber, String fullName, short semester, float cgpa) {
+        this.registrationNumber = registrationNumber;
+        this.fullName = fullName;
+        this.semester = semester;
+        this.cgpa = cgpa;
+    }
+
+    // Display method
+    public void display() {
+        System.out.println("Registration Number: " + registrationNumber);
+        System.out.println("Full Name: " + fullName);
+        System.out.println("Semester: " + semester);
+        System.out.println("CGPA: " + cgpa);
+        System.out.println();
+    }
+
+    // Getter for CGPA (for sorting purposes)
+    public float getCGPA() {
+        return cgpa;
+    }
+
+    // Getter for Full Name (for sorting purposes)
+    public String getFullName() {
+        return fullName;
+    }
+
+    // Sort by CGPA
+    public static void sortByCGPA(Student[] students) {
+        Arrays.sort(students, (s1, s2) -> Float.compare(s2.getCGPA(), s1.getCGPA()));
+    }
+
+    // Sort by Name
+    public static void sortByName(Student[] students) {
+        Arrays.sort(students, (s1, s2) -> s1.getFullName().compareToIgnoreCase(s2.getFullName()));
+    }
+}
+
+public class StudentDemo {
+    public static void main(String[] args) {
+        // Test the class
+        Student[] students = new Student[5];
+        students[0] = new Student(101, "John Doe", (short) 3, 3.8f);
+        students[1] = new Student(102, "Jane Smith", (short) 4, 3.9f);
+        students[2] = new Student(103, "Bob Johnson", (short) 2, 3.5f);
+        students[3] = new Student(104, "Alice Brown", (short) 3, 3.7f);
+        students[4] = new Student(105, "Charlie White", (short) 4, 3.6f);
+
+        System.out.println("Original Student Records:");
+        for (Student student : students) {
+            student.display();
+        }
+
+        // Sort by CGPA
+        Student.sortByCGPA(students);
+        System.out.println("Sorted by CGPA:");
+        for (Student student : students) {
+            student.display();
+        }
+
+        // Sort by Name
+        Student.sortByName(students);
+        System.out.println("Sorted by Name:");
+        for (Student student : students) {
+            student.display();
+        }
+    }
+}
+
+
+public class StringBufferDemo {
+    public static void main(String[] args) {
+        // Demonstrating StringBuffer functions
+        StringBuffer sb = new StringBuffer("Hello, World!");
+
+        // setLength()
+        sb.setLength(5);
+        System.out.println("setLength(): " + sb);
+
+        // charAt()
+        char charAtIndex = sb.charAt(1);
+        System.out.println("charAt(1): " + charAtIndex);
+
+        // setCharAt()
+        sb.setCharAt(1, 'X');
+        System.out.println("setCharAt(1, 'X'): " + sb);
+
+        // getChars()
+        char[] charArray = new char[5];
+        sb.getChars(0, 5, charArray, 0);
+        System.out.println("getChars(): " + new String(charArray));
+
+        // append()
+        sb.append(" Java");
+        System.out.println("append(): " + sb);
+
+        // insert()
+        sb.insert(6, "Awesome ");
+        System.out.println("insert(6, 'Awesome '): " + sb);
+
+        // reverse()
+        sb.reverse();
+        System.out.println("reverse(): " + sb);
+
+        // delete()
+        sb.delete(6, 13);
+        System.out.println("delete(6, 13): " + sb);
+
+        // deleteCharAt()
+        sb.deleteCharAt(3);
+        System.out.println("deleteCharAt(3): " + sb);
+
+        // replace()
+        sb.replace(0, 3, "Hi");
+        System.out.println("replace(0, 3, 'Hi'): " + sb);
+
+        // substring()
+        String substring = sb.substring(3, 7);
+        System.out.println("substring(3, 7): " + substring);
+    }
+}
+
+
+abstract class Bird {
+    abstract void fly();
+    abstract void makeSound();
+}
+
+class Eagle extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Eagle is flying high in the sky.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Eagle makes a screeching sound.");
+    }
+}
+
+class Hawk extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Hawk is gliding gracefully.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Hawk makes a sharp cry.");
+    }
+}
+
+public class BirdDemo {
+    public static void main(String[] args) {
+        Bird eagle = new Eagle();
+        Bird hawk = new Hawk();
+
+        eagle.fly();
+        eagle.makeSound();
+
+        System.out.println();
+
+        hawk.fly();
+        hawk.makeSound();
+    }
+}
+
+
+abstract class Shape {
+    abstract double calculateArea();
+    abstract double calculatePerimeter();
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+class Triangle extends Shape {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    @Override
+    double calculateArea() {
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+
+public class ShapeDemo {
+    public static void main(String[] args) {
+        Shape circle = new Circle(5.0);
+        Shape triangle = new Triangle(3.0, 4.0, 5.0);
+
+        System.out.println("Circle Area: " + circle.calculateArea());
+        System.out.println("Circle Perimeter: " + circle.calculatePerimeter());
+
+        System.out.println();
+
+        System.out.println("Triangle Area: " + triangle.calculateArea());
+        System.out.println("Triangle Perimeter: " + triangle.calculatePerimeter());
+    }
+}
