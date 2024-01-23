@@ -1,0 +1,65 @@
+import CIE.Internals;
+import SEE.External;
+
+public class CalculateFinalMarks{
+																							 public static void main(String[] args) {
+		Internals student1 = Internals("123","John Doe", 5, new int[]{85,90,78,92,88});
+		External student1 = External("189","Rock", 5, new int[]{75,60,98,92,68});
+
+		int finalMarks1 = calculateFinalMarks(student1.internalMarks);
+		int finalMarks2 = calculateFinalMarks(student.seeMarks);
+
+		System.out.println("Student 1 - Final Marks: " + finalMarks1);
+		System.out.println("Student 2 - Final Marks: " + finalMarks2);
+}
+
+    private static int calculateFinalMarks(int[] marks) {
+        int totalMarks = 0;
+        for (int mark : marks) {
+            totalMarks += mark;
+        }
+        return totalMarks;
+    }
+}
+
+
+//Student.java
+package CIE;
+
+public class Student {
+    String usn, name;
+    int sem;
+
+    public Student(String usn, String name, int sem) {
+        this.usn = usn;
+        this.name = name;
+        this.sem = sem;
+    }
+}
+
+// CIE/Internals.java
+package CIE;
+
+public class Internals extends Student {
+    int[] internalMarks;
+
+    public Internals(String usn, String name, int sem, int[] internalMarks) {
+        super(usn, name, sem);
+        this.internalMarks = internalMarks;
+    }
+}
+
+
+//External.java
+package SEE;
+
+import CIE.Student;
+
+public class External extends Student {
+    int[] seeMarks;
+
+    public External(String usn, String name, int sem, int[] seeMarks) {
+        super(usn, name, sem);
+        this.seeMarks = seeMarks;
+    }
+}
