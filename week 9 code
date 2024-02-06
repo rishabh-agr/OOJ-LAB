@@ -1,0 +1,31 @@
+class DisplayThread extends Thread{
+    private String message;
+    private int sleepTime;
+    
+    public DisplayThread(String message, int sleepTime){
+        this.message = message;
+        this.sleepTime = sleepTime;
+    }
+    
+    //@override
+    public void run(){
+        while(true){
+            System.out.println(message);
+            try{
+                Thread.sleep(sleepTime * 1000);
+            }
+            catch(InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class Main{
+    public static void main(String [] args){
+        DisplayThread thread1 = new DisplayThread("BMSCE", 10);
+        DisplayThread thread2 = new DisplayThread("CSE", 2);
+        thread1.start();
+        thread2.start();
+    }
+}
